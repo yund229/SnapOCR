@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snapocr"
+version = "1.0.0"
+description = "截图取字工具:全局热键 → 框选屏幕区域 → OCR 识别 → 自动复制到剪贴板"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "yund229" }]
+keywords = ["ocr", "screenshot", "snipping", "rapidocr", "clipboard", "windows"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: GUI",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics :: Capture :: Screen Capture",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "pillow>=9.0",
+    "rapidocr-onnxruntime>=1.3.0",
+    "keyboard>=0.13.5",
+    "pystray>=0.19.5",
+    "pyperclip>=1.8.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "ruff>=0.4"]
+
+[project.scripts]
+snapocr = "snapocr.app:main"
+
+[project.urls]
+Homepage = "https://github.com/yund229/SnapOCR"
+Issues = "https://github.com/yund229/SnapOCR/issues"
+
+[tool.setuptools]
+packages = ["snapocr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+# 桌面工具场景:GUI/Win32 边界处宽泛 except 与静默降级是有意为之
+ignore = ["BLE001", "S110", "UP006", "UP035", "UP045", "RUF100"]

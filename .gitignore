@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# PyInstaller
+*.spec
+snapocr.spec
+
+# IDE
+.idea/
+.vscode/
+
+# 系统文件
+Thumbs.db
+.DS_Store
