@@ -105,3 +105,21 @@ def select_region() -> Optional[Box]:
     if result and result[2] - result[0] >= 4 and result[3] - result[1] >= 4:
         return result
     return None
+
+
+def grab_region():
+    """截图选框一体流程:先抓整屏入内存 → 遮罩框选 → 内存图裁剪。
+
+    在遮罩弹出前就完成抓屏,彻底避免遮罩本身被截进图里(全黑图)以及
+    遮罩销毁与抓屏之间的时序竞态。
+    """
+    from PIL import ImageGrab
+
+    full = ImageGrab.grab(all_screens=True)
+    box = select_region()
+    if box is None:
+        return None
+    vx, vy = _virtual_screen()[0], _virtual_screen()[1]
+    left, top, right, bottom = box
+    # full 的 (0,0) 对应虚拟屏幕左上角,需要减去偏移
+    return full.crop((left - vx, top - vy, right - vx, bottom - vy))

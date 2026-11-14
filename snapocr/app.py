@@ -140,16 +140,13 @@ class SnapOcrApp:
                 pass
 
     def _process(self) -> None:
-        from snapocr.capture import select_region
+        from snapocr.capture import grab_region
 
-        bbox = select_region()
-        if bbox is None:
+        image = grab_region()
+        if image is None:
             return
         self._notify("正在识别…")
 
-        from PIL import ImageGrab
-
-        image = ImageGrab.grab(bbox=bbox, all_screens=True)
         if self.cfg.save_screenshot and self.cfg.screenshot_dir:
             os.makedirs(self.cfg.screenshot_dir, exist_ok=True)
             stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
