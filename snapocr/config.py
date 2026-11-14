@@ -16,6 +16,7 @@ class Config:
 
     hotkey: str = DEFAULT_HOTKEY          # 全局截图热键(keyboard 库语法)
     confidence: float = 0.5               # OCR 结果置信度阈值
+    enable_editor: bool = True            # 截图后先打开标注编辑器(矩形/画笔/马赛克)
     auto_copy: bool = True                # 识别完成后自动复制到剪贴板
     show_result: bool = True              # 是否弹出结果窗口(否则仅托盘气泡提示)
     save_screenshot: bool = False         # 是否保存原始截图

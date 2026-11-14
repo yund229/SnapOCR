@@ -19,6 +19,51 @@ def copy_text(text: str) -> bool:
     return False
 
 
+def copy_image(image) -> bool:
+    """把 PIL 图片以位图形式写入剪贴板(仅 Windows 支持,CF_DIB)。"""
+    if sys.platform != "win32":
+        return False
+    try:
+        import io
+
+        buf = io.BytesIO()
+        image.convert("RGB").save(buf, "BMP")
+        dib = buf.getvalue()[14:]  # 去掉 14 字节 BITMAPFILEHEADER 即 CF_DIB
+        return _set_clipboard_dib(dib)
+    except Exception:
+        return False
+
+
+def _set_clipboard_dib(dib: bytes) -> bool:
+    import ctypes
+
+    CF_DIB = 8
+    GMEM_MOVEABLE = 0x0002
+
+    user32 = ctypes.windll.user32
+    kernel32 = ctypes.windll.kernel32
+
+    if not user32.OpenClipboard(0):
+        return False
+    try:
+        user32.EmptyClipboard()
+        handle = kernel32.GlobalAlloc(GMEM_MOVEABLE, len(dib))
+        if not handle:
+            return False
+        ptr = kernel32.GlobalLock(handle)
+        if not ptr:
+            kernel32.GlobalFree(handle)
+            return False
+        ctypes.memmove(ptr, dib, len(dib))
+        kernel32.GlobalUnlock(handle)
+        if not user32.SetClipboardData(CF_DIB, handle):
+            kernel32.GlobalFree(handle)
+            return False
+        return True
+    finally:
+        user32.CloseClipboard()
+
+
 def _copy_win32(text: str) -> bool:
     """pyperclip 失效时的兜底:直接调用 Win32 剪贴板 API。"""
     import ctypes

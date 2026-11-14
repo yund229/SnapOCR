@@ -22,6 +22,7 @@ Powered by [RapidOCR](https://github.com/RapidAI/RapidOCR) — no API keys, no c
 
 - **Global hotkey** — `Ctrl+Alt+A` (configurable) triggers region capture from anywhere
 - **Drag-to-select overlay** — crosshair cursor with a dimmed fullscreen mask, multi-monitor supported
+- **Built-in annotation editor** — rectangles, freehand pen, and mosaic blur before OCR; copy the annotated image straight to clipboard
 - **Offline OCR** — ONNX Runtime models bundled locally, Chinese & English, zero network usage
 - **Auto copy** — recognized text lands in your clipboard instantly
 - **CJK-aware post-processing** — merges OCR line fragments into flowing paragraphs, strips stray spaces between Chinese characters
@@ -130,6 +131,7 @@ SnapOCR 是一款 Windows 下的轻量级**截图取字工具**:按下全局热�
 ### 功能亮点
 
 - 全局热键 `Ctrl+Alt+A` 触发框选,支持多显示器
+- 截图后自动进入标注编辑器:矩形框、画笔、马赛克打码,可复制标注图或继续识别
 - 离线 OCR,中英文混排识别效果好
 - 中文后处理:自动合并行片段、去掉汉字间多余空格
 - 高 DPI 屏幕坐标精确,截图不偏移
