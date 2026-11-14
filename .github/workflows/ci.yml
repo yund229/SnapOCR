@@ -12,7 +12,18 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        python: ["3.9", "3.10", "3.11", "3.12"]
+        # ubuntu-latest(26.04) 已不提供 3.9 工具链,3.9 仅在 windows 上验证
+        python: ["3.10", "3.11", "3.12"]
+        exclude:
+          - os: windows-latest
+            python: "3.10"
+          - os: windows-latest
+            python: "3.11"
+          - os: windows-latest
+            python: "3.12"
+        include:
+          - os: windows-latest
+            python: "3.9"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
