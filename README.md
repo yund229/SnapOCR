@@ -12,6 +12,8 @@ Powered by [RapidOCR](https://github.com/RapidAI/RapidOCR) — no API keys, no c
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+<img src="assets/demo.gif" alt="SnapOCR demo: select region, annotate, OCR, copy" width="720">
+
 [中文说明](#中文说明) · [Features](#features) · [Install](#install) · [Usage](#usage) · [How it works](#how-it-works) · [FAQ](#faq)
 
 </div>
