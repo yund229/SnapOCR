@@ -153,3 +153,9 @@ snapocr
 按 `Ctrl+Alt+A` → 拖框 → 松开鼠标即得文本(已复制 + 弹窗展示)。配置文件位于 `%APPDATA%\SnapOCR\config.json`,托盘菜单可直接打开。
 
 </div>
+
+## More tools from me
+
+- [DirTidy](https://github.com/yund229/DirTidy) — auto-organize your Downloads folder, with undo
+- [RectGif](https://github.com/yund229/RectGif) — drag a rectangle on screen, get an animated GIF
+- [DeskPet](https://github.com/yund229/DeskPet) — Java desktop pet
