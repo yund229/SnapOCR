@@ -16,6 +16,8 @@ Powered by [RapidOCR](https://github.com/RapidAI/RapidOCR) — no API keys, no c
 
 [中文说明](#中文说明) · [Features](#features) · [Install](#install) · [Usage](#usage) · [How it works](#how-it-works) · [FAQ](#faq)
 
+📝 [中文图文教程：Windows 截图取字工具从零实现（CSDN）](https://blog.csdn.net/w_2345678/article/details/170815864)
+
 </div>
 
 ---
