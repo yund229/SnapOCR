@@ -120,6 +120,7 @@ Core logic is cross-platform, but the hotkey + tray layer is currently Windows-o
 - [RapidOCR](https://github.com/RapidAI/RapidOCR) — PaddleOCR models on ONNX Runtime
 - [pystray](https://github.com/moses-palmer/pystray) · [keyboard](https://github.com/boppreh/keyboard) · [pyperclip](https://github.com/asweigart/pyperclip)
 
+- [VocabPill](https://github.com/yund229/VocabPill) - pop-up flashcards for CET-4/CET-6 words, Leitner spaced repetition, zero dependencies
 ## License
 
 [MIT](LICENSE) © 2026 yund229
